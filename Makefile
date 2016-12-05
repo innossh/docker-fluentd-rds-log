@@ -1,13 +1,15 @@
 test_handling_error:
 	# Stop mysql container while fluentd is connecting to it
 	./test_handling_error.sh
-	docker-compose logs fluentd
+	docker-compose logs fluentd | tail -20
 
-init: init_containers
+init: init_containers wait
 
 init_containers:
 	docker-compose up --force-recreate --build -d
-	sleep 20
+
+wait:
+	sleep 60
 
 clean:
 	docker-compose stop
