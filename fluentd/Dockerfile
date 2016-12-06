@@ -8,4 +8,4 @@ RUN apt-get update -y && apt-get install -y \
 
 USER ubuntu
 
-RUN ["gem", "install", "fluent-plugin-rds-log", "--no-rdoc", "--no-ri"]
+RUN ["gem", "install", "fluent-plugin-rds-log", "-v", "0.1.8", "--no-rdoc", "--no-ri"]
